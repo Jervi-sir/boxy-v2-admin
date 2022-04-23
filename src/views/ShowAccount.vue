@@ -77,7 +77,7 @@
         </div>
       </div>
       <div class="modal modal-update" v-if="updateModal">
-        <h4>do ypu want to update this account</h4>
+        <h4>do you want to update this account</h4>
         <div class="actions">
           <button class="update-btn" @click="update">update</button>
           <button class="cancel-btn" @click="hideUpdateModal">Cancel</button>
@@ -138,10 +138,10 @@
 </style>
 
 <script>
-import { initializeApp } from "firebase/app";
 import { doc, getDoc } from "firebase/firestore";
-import { getFirestore, updateDoc } from "firebase/firestore";
+import { updateDoc } from "firebase/firestore";
 import { collection, getDocs, deleteDoc } from "firebase/firestore";
+import db from '../api/firebase'
 
 export default {
   data () {
@@ -170,6 +170,7 @@ export default {
           socials: this.user.socials
         });
           this.successUpdate = true;
+          this.updateModal = false;
       } catch(e) {
         console.log(e);
       }
@@ -215,17 +216,6 @@ export default {
   async mounted() {
     const userid = window.location.pathname;
     console.log(userid);
-    const firebaseConfig = {
-      apiKey: "AIzaSyCM_wS47P5iShZGSTJwFO6HNWduKubTAHE",
-      authDomain: "boxy-7f1ba.firebaseapp.com",
-      projectId: "boxy-7f1ba",
-      storageBucket: "boxy-7f1ba.appspot.com",
-      messagingSenderId: "205377736356",
-      appId: "1:205377736356:web:14638563216608303c6031"
-    };
-    
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
     
     const querySnapshot = await getDocs(collection(db, "platforms"));
       querySnapshot.forEach((doc) => {

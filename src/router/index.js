@@ -3,8 +3,6 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ListAccount from '../views/ListAccount.vue'
 import AddAccount from '../views/AddAccount.vue'
-import EditAccount from '../views/EditAccount.vue'
-import DeleteAccount from '../views/DeleteAccount.vue'
 import ShowAccount from '../views/ShowAccount.vue'
 
 Vue.use(VueRouter)
@@ -26,20 +24,9 @@ const routes = [
     component: AddAccount
   },
   {
-    path: '/edit',
-    name: 'edit',
-    component: EditAccount
-  },
-  {
     path: '/show/:id',
     name: 'show',
     component: ShowAccount
-  },
-  
-  {
-    path: '/delete',
-    name: 'delete',
-    component: DeleteAccount
   },
   {
     path: '/about',
@@ -51,10 +38,10 @@ const routes = [
   }
 ]
 
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
-
-export default router
+export default router;

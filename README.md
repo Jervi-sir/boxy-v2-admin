@@ -22,7 +22,7 @@ gacembekhira@gmail.com
 - [x] Modal for confirmation: delete, update
 - [x] Modal for success: update, added
 - [x] redirect after a delete user
-- [ ] globalise Firebase Api credentials
+- [x] globalise Firebase Api credentials
 - [ ] require Auth for access admin app
 - [ ] change firebase account
 - [ ] add new database

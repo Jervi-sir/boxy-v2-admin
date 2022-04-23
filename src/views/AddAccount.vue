@@ -78,16 +78,15 @@
 </style>
 
 <script>
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc  } from "firebase/firestore";
+import { collection, addDoc  } from "firebase/firestore";
 import { getDocs  } from "firebase/firestore";
+import db from '../api/firebase'
 
 export default {
   
   name: 'AddAccount',
   data () {
     return {
-      db: '',
       bio: '',
       name: '',
       platforms: [],
@@ -104,33 +103,33 @@ export default {
     }
   },
   methods: {
-      async submit () { 
-        if(this.name == ''|| this.bio == ''|| this.socials.length < 1) {
-          this.error = true;
-          return null;
-        }
-        try {
-            const docRef = await addDoc(collection(this.db, "users"), {
-              name: this.name,
-              bio: this.bio,
-              socials: this.socials
-          });
-          this.createdAccountId = docRef.id;
-          this.successModal = true;
-          this.name = '';
-          this.bio = '';
-          this.socials = [
-            {
-              platform: '',
-              link: '',
-              name: '',
-            }
-          ];
+    async submit () { 
+      if(this.name == ''|| this.bio == ''|| this.socials.length < 1) {
+        this.error = true;
+        return null;
+      }
+      try {
+          const docRef = await addDoc(collection(db, "users"), {
+            name: this.name,
+            bio: this.bio,
+            socials: this.socials
+        });
+        this.createdAccountId = docRef.id;
+        this.successModal = true;
+        this.name = '';
+        this.bio = '';
+        this.socials = [
+          {
+            platform: '',
+            link: '',
+            name: '',
+          }
+        ];
 
-        } catch(e) {
-          console.log("errors: ", e);
-        }
-      },
+      } catch(e) {
+        console.log("errors: ", e);
+      }
+    },
     addSocial() {
       this.socials.push({
         platform: '',
@@ -145,19 +144,7 @@ export default {
   components: {
   },
   async mounted() {
-    const firebaseConfig = {
-      apiKey: "AIzaSyCM_wS47P5iShZGSTJwFO6HNWduKubTAHE",
-      authDomain: "boxy-7f1ba.firebaseapp.com",
-      projectId: "boxy-7f1ba",
-      storageBucket: "boxy-7f1ba.appspot.com",
-      messagingSenderId: "205377736356",
-      appId: "1:205377736356:web:14638563216608303c6031"
-    };
-    
-    const app = initializeApp(firebaseConfig);
-    this.db = getFirestore(app);
-
-    const querySnapshot = await getDocs(collection(this.db, "platforms"));
+    const querySnapshot = await getDocs(collection(db, "platforms"));
       querySnapshot.forEach((doc) => {
         var platform = {
           'name': doc.data().name,
