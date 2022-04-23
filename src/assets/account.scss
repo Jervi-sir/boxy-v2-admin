@@ -1,0 +1,71 @@
+.List {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Add {
+    display: flex;
+    justify-content: center;
+  
+  }
+  table {
+    width: auto;
+    &, th, td {
+      border: 1px solid;
+    }
+    .social {
+      .content {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem
+      }
+    }
+  }
+  .Add {
+    display: flex;
+    justify-content: center;
+  
+  }
+  .form {
+    display: flex;
+    width: 30rem;
+    flex-direction: column;
+  }
+  .input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    label {
+      font-size: 10px;
+    }
+  }
+  
+  .socials {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1rem;
+    .row {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .remove {
+      button {
+        height: 100%;
+        width: 2rem;
+      }
+    }
+  }
+  
+  .add-btn {
+    display: flex;
+    flex-direction: row-reverse;
+    button {
+      width: 5rem;
+    }
+  }
+  .delete-acc {
+    margin-top: 2rem;
+    text-align: center;
+  }

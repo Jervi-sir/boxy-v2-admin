@@ -1,0 +1,25 @@
+[x] add user
+[x] bulk add social like phone
+[x] list all users
+[x] add show for each user
+[x] edit user
+[x] delete user
+[] globalise api access
+[x] requires
+[x] modals for confirmation
+    [x] delete
+    [x] update
+    [x] added with redirection
+[x] redirects
+    [x] when delete
+    [x] when addeed
+
+data structure
+    user:
+        id
+        name
+        bio
+        socials:
+            platform
+            name
+            link

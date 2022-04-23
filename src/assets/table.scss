@@ -1,0 +1,99 @@
+/* Please ❤ this if you like it! 😊 */
+
+$bg-color: #f2f6f9;
+$active-color: #25be64;
+$inactive-color: #dadde4;
+$new-color: #febf02;
+$text-color: #141a4e;
+$table-bg-color: #fefefe;
+$table-head-bg-color: #e1e8f2;
+$table-border-color: #edeef2;
+$hover-bg-color: #fb4f83;
+$hover-text-color: #ffffff;
+
+//Responsive Breakpoint SCSS Mixin:
+
+
+/* Googles Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* Reset Style */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	font-family: "Poppins", sans-serif;
+	color: $text-color;
+	background-color: $bg-color;
+	font-size: 1.6rem;
+}
+
+table {
+	width: 100%;
+	background-color: $table-bg-color;
+	border-radius: 10px;
+	border-collapse: collapse;
+	tbody {
+		tr {
+			height: auto;
+			border: $inactive-color solid 1px;
+			transition: 0.1s linear;
+			transition-property: color, background;
+			&:hover {
+				border: none;
+				cursor: pointer;
+				color: $hover-text-color;
+				background-color: $hover-bg-color;
+				a {
+					color: $new-color;
+				}
+				.edit {
+					font-weight: bold;
+				}
+				.platform {
+					color: $hover-text-color;
+				}
+			}
+
+			a {
+				color: #1250c4;
+				text-decoration: none;
+			}
+
+			.edit {
+				font-weight: bold;
+				text-decoration: none;
+				color: $hover-bg-color;
+			}
+		}
+	}
+	td {
+		height: auto;
+		padding: 0 1rem;
+	}
+	
+}
+
+.social {
+	display: flex;
+	flex-direction: column;
+	border-bottom: $inactive-color solid 1px;
+}
+
+.platform {
+	color: #141a4e;
+	font-weight: bold;
+}
+
