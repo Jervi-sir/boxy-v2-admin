@@ -204,7 +204,7 @@ export default {
       this.updateModal = false;
     },
     remove(index) {
-      this.socials.splice(index, 1);
+      this.user.socials.splice(index, 1);
     }
     
   },
