@@ -3,7 +3,7 @@
     <div class="form">
     <h1>Login</h1>
       <div class="error" v-if="error">
-        don't leave things blank
+        error Credentials
       </div>
       <div class="input">
         <label for="">name</label>
@@ -48,6 +48,7 @@
 </style>
 
 <script>
+import credentials from '../api/authentication'
 
 export default {
   
@@ -61,14 +62,13 @@ export default {
   },
   methods: {
     login() {
-        const name = "bruh"
-        const password = "bruh"
-        const combined = name + ', ' + password
-
         var userInputCombined = this.name + ', ' + this.password
-        if(userInputCombined == combined) {
+        if(userInputCombined == credentials) {
             sessionStorage.setItem('authenticated', userInputCombined);
             this.$router.push("list");
+        }
+        else {
+          this.error = true;
         }
     }
   },
