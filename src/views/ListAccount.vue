@@ -1,5 +1,8 @@
 <template>
   <div class="List">
+    <div class="logout">
+      <button @click="logout">Logout</button>
+    </div>
     <div >
       <table >
         <thead >
@@ -46,6 +49,16 @@
       color: rgb(11, 116, 116);
     }
   }
+  .logout {
+      display: flex;
+      flex-direction: row-reverse;
+        
+      button {
+        background: tomato;
+        border-radius: 5px;
+        padding: 0.5rem 2rem;
+      } 
+  }
 </style>
 
 <script>
@@ -53,6 +66,12 @@
 import { getDocs, collection } from "firebase/firestore";
 import db from '../api/firebase'
 export default {
+  methods: {
+    logout () { 
+      sessionStorage.removeItem('authenticated');
+      location.reload();
+    },
+  },
   name: 'ListAccount',
   data () {
     return {
